@@ -2,9 +2,9 @@
 set -e
 
 # ================== 端口设置 ==================
-export TUIC_PORT=${TUIC_PORT:-""}
+export TUIC_PORT=${TUIC_PORT:-"20043"}
 export HY2_PORT=${HY2_PORT:-""}
-export REALITY_PORT=${REALITY_PORT:-""}
+export REALITY_PORT=${REALITY_PORT:-"20043"}
 
 # ================== 强制切换到脚本所在目录 ==================
 cd "$(dirname "$0")"
@@ -177,7 +177,7 @@ echo -e "\n\e[1;32m${FILE_PATH}/sub.txt 已保存\e[0m"
 
 # ================== 启动定时重启（前台阻塞） ==================
 schedule_restart() {
-  echo "[定时重启:Sing-box] 已启动（北京时间 00:03）"
+  echo "[定时重启:Sing-box] 已启动（美国西部时间 11:03，相当于北京凌晨3点）"
   LAST_RESTART_DAY=-1
 
   while true; do
@@ -188,7 +188,7 @@ schedule_restart() {
     D=$(( beijing_ts / 86400 ))
 
     # ---- 时间匹配 → 重启 sing-box ----
-    if [ "$H" -eq 00 ] && [ "$M" -eq 03 ] && [ "$D" -ne "$LAST_RESTART_DAY" ]; then
+    if [ "$H" -eq 11 ] && [ "$M" -eq 03 ] && [ "$D" -ne "$LAST_RESTART_DAY" ]; then
       echo "[定时重启:Sing-box] 到达 00:03 → 重启 sing-box"
       LAST_RESTART_DAY=$D
 
