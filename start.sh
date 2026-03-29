@@ -2,9 +2,9 @@
 set -e
 
 # ================== 端口设置 ==================
-export TUIC_PORT=${TUIC_PORT:-"20043"}
+export TUIC_PORT=${TUIC_PORT:-"14944"}
 export HY2_PORT=${HY2_PORT:-""}
-export REALITY_PORT=${REALITY_PORT:-"20043"}
+export REALITY_PORT=${REALITY_PORT:-"14944"}
 
 # ================== 强制切换到脚本所在目录 ==================
 cd "$(dirname "$0")"
@@ -206,4 +206,4 @@ schedule_restart() {
 }
 
 # ★★★ 关键：保持脚本前台运行，不能退出
-schedule_restart
+## schedule_restart
